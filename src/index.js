@@ -6,7 +6,7 @@ export default class TwelveTet {
         this._pitchRegistry = new PitchRegistry(frequency)
     }
 
-    pitch(notation) {
+    getPitch(notation) {
         const value = parse(notation)
         return value != null ? this._pitchRegistry.get(value) : null
     }

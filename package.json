@@ -1,7 +1,7 @@
 {
     "name": "twelvetet",
-    "version": "0.0.0",
-    "description": "Javascript music theory library for Node.js and the browser",
+    "version": "0.0.1",
+    "description": "A small music theory and twelve-tone equal temperament library for Javascript",
     "main": "lib/twelvetet.js",
     "module": "es/twelvetet.js",
     "files": ["dist", "lib", "es", "src"],
@@ -26,7 +26,7 @@
         "type": "git",
         "url": "git+https://github.com/adriano-di-giovanni/twelvetet.git"
     },
-    "keywords": [],
+    "keywords": ["music", "theory", "twelve-tone", "equal", "temperament", "12-TET", "12-ET"],
     "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
     "license": "MIT",
     "lint-staged": {
