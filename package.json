@@ -1,0 +1,20 @@
+{
+  "name": "twelvetet",
+  "version": "0.0.0",
+  "description": "Javascript music theory library for Node.js and the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriano-di-giovanni/twelvetet.git"
+  },
+  "keywords": [],
+  "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adriano-di-giovanni/twelvetet/issues"
+  },
+  "homepage": "https://github.com/adriano-di-giovanni/twelvetet#readme"
+}
