@@ -3,11 +3,12 @@ import PitchClassOctave from './PitchClassOctave'
 
 const pow = Math.pow
 
+const STANDARD_PITCH = [9, 4] // A4
 const TWELFTH_ROOT_OF_TWO = pow(2, 1 / 12)
 
 export default class PitchRegistry {
     constructor(frequency = 440) {
-        this._pitchClassOctave = new PitchClassOctave([9, 4]) // A4
+        this._pitchClassOctave = new PitchClassOctave(STANDARD_PITCH)
         this._frequency = frequency
         this._pitches = {}
     }
@@ -20,6 +21,10 @@ export default class PitchRegistry {
             pitches[key] = create.call(this, pitchClassOctave)
         }
         return pitches[key]
+    }
+
+    getStandard() {
+        return this.get(STANDARD_PITCH)
     }
 }
 

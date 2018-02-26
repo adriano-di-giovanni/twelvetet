@@ -17,3 +17,7 @@ export default class Interval {
         return this._semitones
     }
 }
+
+export const CENT = 1200
+export const SEMITONE = 12
+export const OCTAVE = 1

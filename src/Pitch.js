@@ -1,7 +1,9 @@
+import Frequency from './Frequency'
+
 export default class Pitch {
     constructor(pitchClassOctave, frequency) {
         this._pitchClassOctave = pitchClassOctave
-        this._frequency = frequency
+        this._frequency = new Frequency(frequency)
     }
 
     getClass() {
