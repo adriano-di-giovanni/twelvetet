@@ -1,6 +1,6 @@
 {
     "name": "twelvetet",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "A minimalistic twelve-tone equal temperament libray for Javascript",
     "main": "lib/twelvetet.js",
     "module": "es/twelvetet.js",

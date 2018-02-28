@@ -2,7 +2,9 @@
 
 > TwelveTet is a minimalistic [twelve-tone equal temperament](https://en.wikipedia.org/wiki/Equal_temperament) library for Javascript. It helps you manipulate pitches and their frequencies using a simple [fluent interface](https://en.wikipedia.org/wiki/Fluent_interface).
 
-## Installation
+Please, refer to the [Installation](#installation), [Usage](#usage) and [API](#api) sections for more information.
+
+## Installation <a name="installation"></a>
 
 Install the latest stable version of TwelveTet using [npm](https://www.npmjs.com/):
 
@@ -20,7 +22,40 @@ The UMD builds make TwelveTet available as `window.TwelveTet` global variable.
 
 TwelveTet works in [any modern browser](http://caniuse.com/#feat=es5) and Node.js.
 
-## API
+## Usage <a name="usage"></a>
+
+```javascript
+import TwelveTet from 'twelvetet'
+
+const tuningFrequency = 440
+const twelvetet = new TwelveTet(tuningFrequency)
+
+let pitch
+
+// create a pitch from a frequency
+pitch = twelvetet.pitch(440)
+console.log(pitch.toString())               // 'A4'
+
+// create a pitch from an out-of-tune frequency
+pitch = twelvetet.pitch(438)
+console.log(pitch.offset())                 // 0.07887184708183335
+console.log(pitch.toString())               // 'A4'
+console.log(pitch.valueOf())                // 440
+
+// create a pitch by its scientific notation
+pitch = twelvetet.pitch('A4')
+console.log(pitch.valueOf())                // 440
+
+// navigate between pitches
+pitch = twelvetet.pitch('A4').next()
+console.log(pitch.toString())               // 'A#4'
+
+// get intervals
+pitch = twelvetet.pitch('A4')
+console.log(pitch.intervalTo(pitch.next())) // 1
+```
+
+## API  <a name="api"></a>
 
 {{>main}}
 
