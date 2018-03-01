@@ -149,6 +149,7 @@ console.log(pitch.toString()) // 'A#4'
     * [.intervalFrom(value)](#Pitch+intervalFrom)
     * [.toString([useFlat])](#Pitch+toString)
     * [.valueOf()](#Pitch+valueOf)
+    * [.equals(value)](#Pitch+equals) ⇒ <code>Boolean</code>
 
 <a name="new_Pitch_new"></a>
 
@@ -297,6 +298,17 @@ const pitch = twelvetet.pitch(438)
 console.log(+pitch)          // 440
 console.log(pitch.valueOf()) // 440
 ```
+<a name="Pitch+equals"></a>
+
+### pitch.equals(value) ⇒ <code>Boolean</code>
+Returns a boolean indicating whether the two pitches are equal.
+
+**Kind**: instance method of [<code>Pitch</code>](#Pitch)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>Number</code> \| <code>String</code> \| [<code>Pitch</code>](#Pitch) | A value representing a pitch. It can be any of the following: <ul>     <li>a positive number representing a frequency in hertz. If the frequency is out-of-tune, `intervalFrom` returns the interval between  the normalized frequency and the frequency of the current pitch.</li>     <li>a string representing scientific pitch notation</li>     <li>an instance of [Pitch](#Pitch). If the pitch is from an out-of-tune frequency, `intervalFrom` returns the interval between the normalized frequency and the frequency of the current pitch.</li> </ul> |
+
 
 ## License
 

@@ -177,3 +177,23 @@ describe('toString', () => {
         }
     )
 })
+
+describe('equals', () => {
+    let pitch
+
+    beforeEach(() => {
+        pitch = new Pitch(440, 440)
+    })
+
+    it('should be a function', () => {
+        expect(typeof pitch.equals).toBe('function')
+    })
+
+    it('should return true when pitches are equal', () => {
+        expect(pitch.equals(pitch)).toBe(true)
+    })
+
+    it("should return true false pitches aren't equal", () => {
+        expect(pitch.equals(pitch.next())).toBe(false)
+    })
+})

@@ -203,6 +203,25 @@ export default class Pitch {
     valueOf() {
         return this._frequency
     }
+
+    /**
+     * Returns a boolean indicating whether the two pitches are equal.
+     *
+     * @function equals
+     * @memberof Pitch
+     * @instance
+     * @param {Number|String|Pitch} value A value representing a pitch. It can be any of the following:
+     * <ul>
+     *     <li>a positive number representing a frequency in hertz. If the frequency is out-of-tune, `intervalFrom` returns the interval between  the normalized frequency and the frequency of the current pitch.</li>
+     *     <li>a string representing scientific pitch notation</li>
+     *     <li>an instance of [Pitch]{@link Pitch}. If the pitch is from an out-of-tune frequency, `intervalFrom` returns the interval between the normalized frequency and the frequency of the current pitch.</li>
+     * </ul>
+     * @returns {Boolean}
+     */
+    equals(value) {
+        const pitch = Pitch.create(value, this._tuningFrequency)
+        return this.class() === pitch.class() && this.octave() === pitch.octave()
+    }
 }
 
 Pitch.create = function(value, tuningFrequency) {
