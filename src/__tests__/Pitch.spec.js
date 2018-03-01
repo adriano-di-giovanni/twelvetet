@@ -162,13 +162,18 @@ describe('intervalFrom', () => {
 })
 
 describe('toString', () => {
-    let pitch
-
-    beforeEach(() => {
-        pitch = new Pitch(440, 440).next()
-    })
-
-    it('should return scientific pitch notation', () => {
-        expect(pitch.toString()).toBe('A#4')
-    })
+    ;['A4', 'A#4', 'B4', 'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5'].forEach(
+        (value, index) => {
+            it('should return scientific pitch notation using sharp enharmonic equivalents', () => {
+                expect(new Pitch(440, 440).next(index).toString()).toBe(value)
+            })
+        }
+    )
+    ;['A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5', 'F5', 'Gb5', 'G5', 'Ab5'].forEach(
+        (value, index) => {
+            it('should return scientific pitch notation using flat enharmonic equivalents', () => {
+                expect(new Pitch(440, 440).next(index).toString(true)).toBe(value)
+            })
+        }
+    )
 })

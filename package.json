@@ -1,6 +1,6 @@
 {
     "name": "twelvetet",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A minimalistic twelve-tone equal temperament libray for Javascript",
     "main": "lib/twelvetet.js",
     "module": "es/twelvetet.js",
@@ -77,6 +77,6 @@
     },
     "homepage": "https://github.com/adriano-di-giovanni/twelvetet#readme",
     "dependencies": {
-        "twelvetet-spn": "^0.2.3"
+        "twelvetet-spn": "^0.3.2"
     }
 }

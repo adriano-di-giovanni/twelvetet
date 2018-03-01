@@ -179,9 +179,8 @@ export default class Pitch {
      * console.log(pitch.toString(true)) // 'Bb4'
      */
     toString(useFlat = false) {
-        const accidental = useFlat ? 'b' : '#'
-        const re = new RegExp(`^[a-g]${accidental}?\\d+$`, 'i')
-        return format([this.class(), this.octave()]).find(e => re.test(e))
+        const results = format([this.class(), this.octave()])
+        return results[2] || results[useFlat ? 3 : 1]
     }
 
     /**
