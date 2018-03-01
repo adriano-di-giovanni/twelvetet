@@ -25,15 +25,20 @@ describe('valueOf', () => {
 })
 
 describe('class', () => {
-    let pitch
-
-    beforeEach(() => {
-        pitch = new Pitch(440, 440)
+    it('should be a function', () => {
+        expect(typeof new Pitch(440, 440).class).toBe('function')
     })
 
-    it('should return correct value', () => {
-        expect(pitch.class()).toBe(9)
-    })
+    let i = -12
+    while (i <= 12) {
+        it('should return an integer between 0 and 11', () => {
+            const classValue = new Pitch(440, 440).next(i).class()
+            expect(Number.isInteger(classValue)).toBe(true)
+            expect(classValue).toBeGreaterThanOrEqual(0)
+            expect(classValue).toBeLessThanOrEqual(11)
+        })
+        i++
+    }
 })
 
 describe('octave', () => {
@@ -153,5 +158,17 @@ describe('intervalFrom', () => {
 
     it('should return interval to normalized frequency', () => {
         expect(pitch.intervalFrom(878)).toBe(-12)
+    })
+})
+
+describe('toString', () => {
+    let pitch
+
+    beforeEach(() => {
+        pitch = new Pitch(440, 440).next()
+    })
+
+    it('should return scientific pitch notation', () => {
+        expect(pitch.toString()).toBe('A#4')
     })
 })

@@ -1,6 +1,9 @@
 import { interval, isFrequency, next, normalize } from './FrequencyHelper'
 import { format, parse } from 'twelvetet-spn'
 
+const floor = Math.floor
+const round = Math.round
+
 /**
  * Represents a pitch.
  *
@@ -37,7 +40,7 @@ export default class Pitch {
         // instead of the expected `1` because the remainder from the modulo operation takes the
         // sign of the dividend. https://mzl.la/2oCl8yz
 
-        return (9 + 12 + interval(this._tuningFrequency, this._frequency) % 12) % 12
+        return (9 + 12 + round(interval(this._tuningFrequency, this._frequency)) % 12) % 12
     }
 
     /**
@@ -49,7 +52,7 @@ export default class Pitch {
      * @returns {Number} An integer representing the pitch octave.
      */
     octave() {
-        return Math.floor(4 + (9 + interval(this._tuningFrequency, this._frequency)) / 12)
+        return floor(4 + (9 + interval(this._tuningFrequency, this._frequency)) / 12)
     }
 
     /**
@@ -138,7 +141,7 @@ export default class Pitch {
      * </ul>
      */
     intervalTo(value) {
-        return Math.round(interval(this._frequency, castFrequency(value, this._tuningFrequency)))
+        return round(interval(this._frequency, castFrequency(value, this._tuningFrequency)))
     }
 
     /**
@@ -155,7 +158,7 @@ export default class Pitch {
      * </ul>
      */
     intervalFrom(value) {
-        return Math.round(interval(castFrequency(value, this._tuningFrequency), this._frequency))
+        return round(interval(castFrequency(value, this._tuningFrequency), this._frequency))
     }
 
     /**
@@ -230,5 +233,5 @@ function castFrequency(value, tuningFrequency) {
 }
 
 function isInteger(value) {
-    return typeof value === 'number' && isFinite(value) && Math.floor(value) === value
+    return typeof value === 'number' && isFinite(value) && floor(value) === value
 }
