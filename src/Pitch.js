@@ -204,7 +204,7 @@ export default class Pitch {
 }
 
 Pitch.create = function(value, tuningFrequency) {
-    return new Pitch(castFrequency(value, tuningFrequency))
+    return new Pitch(castFrequency(value, tuningFrequency), tuningFrequency)
 }
 
 function castFrequency(value, tuningFrequency) {
