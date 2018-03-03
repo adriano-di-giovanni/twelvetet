@@ -230,7 +230,7 @@ Pitch.create = function(value, tuningFrequency) {
 
 function castFrequency(value, tuningFrequency) {
     if (value instanceof Pitch) {
-        return +value
+        return value._inputFrequency
     }
 
     if (typeof value === 'string') {
@@ -243,11 +243,17 @@ function castFrequency(value, tuningFrequency) {
         return next(tuningFrequency, result[1] * 12 + result[0] - 57)
     }
 
-    if (isFrequency(value)) {
-        return normalize(value, tuningFrequency)
+    if (!isFrequency(value)) {
+        throw new TypeError("Missing or invalid argument, 'value'.")
     }
 
-    throw new TypeError("Missing or invalid argument, 'value'.")
+    return value
+
+    // if (isFrequency(value)) {
+    //     return normalize(value, tuningFrequency)
+    // }
+    //
+    // throw new TypeError("Missing or invalid argument, 'value'.")
 }
 
 function isInteger(value) {
